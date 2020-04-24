@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_notifications">
+
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="kpfu.itis.myservice.features.feature_notification.presentation.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/nav_favorite_services"
+        android:name="kpfu.itis.myservice.features.feature_notification.presentation.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/nav_add_service"
+        android:name="kpfu.itis.myservice.features.feature_notification.presentation.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/nav_notifications"
+        android:name="kpfu.itis.myservice.features.feature_notification.presentation.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="kpfu.itis.myservice.features.feature_profile.presentation.auth.AuthFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_auth" >
+        <action
+            android:id="@+id/action_navigation_auth_to_navigation_profile"
+            app:destination="@id/nav_profile_user" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_profile_user"
+        android:name="kpfu.itis.myservice.features.feature_profile.presentation.profile.ProfileFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>

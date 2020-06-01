@@ -88,6 +88,7 @@ class ServiceDetailFragment : Fragment() {
         id = arguments?.getLong(ARG_ID)
         userId = arguments?.getLong(ARG_USER_ID)
         isFav = arguments?.getBoolean(ARG_IS_FAVORITE) ?: false
+        bottomNavigationView?.visibility = View.VISIBLE
         if (viewModel.isEqualsAuthor(userId ?: -2)) {
             navigator.navigateBack()
             navigator.navigateTo(ServiceFragment.newInstance(id ?: -1))
@@ -247,6 +248,7 @@ class ServiceDetailFragment : Fragment() {
                 menu.findItem(R.id.tb_star_empty).isVisible = true
             }
             btn_hire.setOnClickListener {
+                bottomNavigationView?.visibility = View.GONE
                 navigator.navigateTo(MessageFormFragment.newInstance(ser_id, userId ?: -1, title ?: ""))
             }
             id_author_link.setOnClickListener {

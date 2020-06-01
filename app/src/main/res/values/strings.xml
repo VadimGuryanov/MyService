@@ -4,11 +4,38 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_profile">Profile</string>
-    <string name="title_add_service">Add service</string>
-    <string name="title_search">Search</string>
-    <string name="title_favorite_services">Favorite services</string>
+    <string name="title_notifications">Уведомления</string>
+    <string name="title_profile">Профиль</string>
+    <string name="title_add_service">Создать</string>
+    <string name="title_search">Поиск</string>
+    <string name="title_favorite_services">Закладки</string>
     <string name="about">Расскажите о себе</string>
     <string name="load">Загрузка...</string>
+    <string name="not_found">Ничего не найдено</string>
+    <string name="edit">Редактировать</string>
+    <string name="delete">Удалить</string>
+    <string name="vk_url">vk.com/</string>
+    <string name="service">Услуги</string>
+    <string name="create_service">Создать услугу</string>
+    <string name="create_service_des">Заполните информацию о себе, о свои навыках, так люди смогу найти вас быстрее.</string>
+    <string name="service_err">Произошла ошибка</string>
+    <string name="service_creating">Создание услуги</string>
+    <string name="internet_problem">Проверте подключение с интернетом</string>
+    <string name="rub">₽</string>
+    <string name="eur">€</string>
+    <string name="dollar">$</string>
+    <string name="update">Обновить и опубликовать</string>
+    <string name="field_empty">Не должно быть пустое</string>
+    <string name="service_name">Услуга</string>
+    <string name="favorite_service">Место, где храняться ваши закладки. Сохраняйте услуги, чтобы всегда иметь доступ к ним.</string>
+    <string name="title_auth">Для работы вы должны авторизоваться</string>
+    <string name="title_send_message">Отправить сообщение</string>
+    <string name="title_services">Услуги</string>
+    <string name="search_empty">По запросы ничего не найдено</string>
+    <string name="profile_auth">Для полноценной работы вы должны авторизоваться. Это дает вам право создавать собственные услуги, а так же нанимать других, не выходя из приложения.</string>
+    <string-array name="currancy_array">
+        <item>₽</item>
+        <item>$</item>
+        <item>€</item>
+    </string-array>
 </resources>

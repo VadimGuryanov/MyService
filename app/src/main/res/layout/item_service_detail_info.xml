@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_specialty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Специальность: "
+        app:layout_constraintEnd_toEndOf="@id/line"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_specialty_value" />
+
+    <TextView
+        android:id="@+id/tv_specialty_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/load"
+        android:textSize="16sp"
+        android:textColor="@color/app_black"
+        app:layout_constraintBottom_toTopOf="@id/tv_experience_value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/line"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_experience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Опыт работы: "
+        app:layout_constraintEnd_toEndOf="@id/tv_specialty"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/tv_specialty"
+        app:layout_constraintTop_toTopOf="@id/tv_experience_value" />
+
+    <TextView
+        android:id="@+id/tv_experience_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/load"
+        android:textSize="16sp"
+        android:textColor="@color/app_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/tv_specialty_value"
+        app:layout_constraintStart_toStartOf="@id/line"
+        app:layout_constraintTop_toBottomOf="@id/tv_specialty_value"
+        app:layout_constraintVertical_bias="0" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/app_btn_gray"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_percent="0.32"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,8 +8,6 @@ interface INavigation {
 
     fun navigateToNotAdd(fragment: Fragment)
 
-    fun popBackStack()
-
-//    fun navigateToActivity()
+    fun navigateBack()
 
 }

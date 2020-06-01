@@ -1,8 +1,5 @@
 package kpfu.itis.myservice.features.feature_profile.data.model
 
-import kpfu.itis.myservice.features.feature_profile.data.model.City
-import kpfu.itis.myservice.features.feature_profile.data.model.University
-
 data class VKUser(
     val id: Long,
     val first_name: String,

@@ -3,13 +3,14 @@ package kpfu.itis.myservice.app.di.module
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.room.Room
-import androidx.security.crypto.EncryptedSharedPreferences
-import androidx.security.crypto.MasterKeys
 import dagger.Module
 import dagger.Provides
+import kpfu.itis.myservice.app.App
 import kpfu.itis.myservice.data.db.AppDatabase
+import kpfu.itis.myservice.data.db.dao.FavoriteDao
+import kpfu.itis.myservice.data.db.dao.NotificationDao
+import kpfu.itis.myservice.data.db.dao.ServiceDao
 import kpfu.itis.myservice.data.db.dao.UserDao
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -17,21 +18,8 @@ class StorageModule {
 
     @Provides
     @Singleton
-    fun provideSharedPreferences(
-        @Named(TAG_MASTER_KEY) masterKey : String,
-        context: Context
-    ) : SharedPreferences = EncryptedSharedPreferences.create(
-        FILE_NAME,
-        masterKey,
-        context,
-        EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-        EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-    )
-
-    @Provides
-    @Singleton
-    @Named(TAG_MASTER_KEY)
-    fun provideMasterKey() : String = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
+    fun provideSharedPreferences(app: App) : SharedPreferences =
+        app.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
 
     @Singleton
     @Provides
@@ -44,10 +32,20 @@ class StorageModule {
     @Provides
     fun provideUserDao(db: AppDatabase): UserDao = db.userDao()
 
+    @Singleton
+    @Provides
+    fun provideServiceDao(db: AppDatabase): ServiceDao = db.serviceDao()
+
+    @Singleton
+    @Provides
+    fun provideFavoriteDao(db: AppDatabase): FavoriteDao = db.favoriteDao()
+
+    @Singleton
+    @Provides
+    fun provideNotificationDao(db: AppDatabase): NotificationDao = db.notificationDao()
+
     companion object {
-        private const val TAG_MASTER_KEY = "tag_master_key"
         private const val FILE_NAME = "session"
     }
-
 
 }

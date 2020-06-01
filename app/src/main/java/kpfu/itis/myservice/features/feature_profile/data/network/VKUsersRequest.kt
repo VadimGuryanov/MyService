@@ -3,12 +3,8 @@ package kpfu.itis.myservice.features.feature_profile.data.network
 import com.google.gson.Gson
 import com.vk.api.sdk.*
 import com.vk.api.sdk.requests.VKRequest
-import com.vk.api.sdk.utils.log.DefaultApiLogger
-import com.vk.api.sdk.utils.log.Logger
 import kpfu.itis.myservice.features.feature_profile.data.model.VKUser
 import org.json.JSONObject
-import java.util.concurrent.TimeUnit
-
 
 class VKUsersRequest: VKRequest<List<VKUser>> {
     constructor(uids: IntArray = intArrayOf()): super("users.get") {

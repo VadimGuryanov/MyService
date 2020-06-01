@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.Provides
 import kpfu.itis.myservice.common.HelperToastSnackbar
 import kpfu.itis.myservice.common.HelperSharedPreferences
+import kpfu.itis.myservice.common.Mapper
 import javax.inject.Singleton
 
 @Module
@@ -18,5 +19,9 @@ class CommonModule {
     @Provides
     @Singleton
     fun provideHelperToastSnackbar(): HelperToastSnackbar = HelperToastSnackbar()
+
+    @Provides
+    @Singleton
+    fun provideMapper() : Mapper = Mapper()
 
 }

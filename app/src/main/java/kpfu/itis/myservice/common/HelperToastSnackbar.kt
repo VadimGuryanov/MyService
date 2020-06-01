@@ -4,7 +4,6 @@ import android.content.Context
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-import kpfu.itis.myservice.app.App
 
 class HelperToastSnackbar {
 
@@ -33,7 +32,5 @@ class HelperToastSnackbar {
             .show()
 
     }
-
-
 
 }

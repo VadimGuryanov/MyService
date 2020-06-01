@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/bs_container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Подробнее"
+        android:textColor="@color/app_black"
+        android:textSize="24sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/v_line_1"/>
+
+
+    <ImageView
+        android:id="@+id/iv_city"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_home_black_24dp"
+        app:layout_constraintEnd_toStartOf="@id/tv_city"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/v_line_1"
+        app:layout_constraintTop_toTopOf="@id/tv_city" />
+
+    <TextView
+        android:id="@+id/tv_city"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/load"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_experience_value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_city"
+        app:layout_constraintTop_toBottomOf="@id/v_line_1"
+        app:layout_constraintVertical_bias="0" />
+
+    <ImageView
+        android:id="@+id/tv_experience"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_school_black_24dp"
+        app:layout_constraintEnd_toStartOf="@id/tv_experience_value"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/iv_city"
+        app:layout_constraintTop_toTopOf="@id/tv_experience_value" />
+
+    <TextView
+        android:id="@+id/tv_experience_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/load"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_fac"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_experience"
+        app:layout_constraintTop_toBottomOf="@id/tv_city"
+        app:layout_constraintVertical_bias="0" />
+
+    <TextView
+        android:id="@+id/tv_fac"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/load"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_work"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@id/tv_experience_value"
+        app:layout_constraintTop_toBottomOf="@id/tv_experience_value"
+        app:layout_constraintVertical_bias="0" />
+
+    <ImageView
+        android:id="@+id/iv_work"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_work_black_24dp"
+        app:layout_constraintEnd_toStartOf="@id/tv_work"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/tv_experience"
+        app:layout_constraintTop_toTopOf="@id/tv_work" />
+
+    <TextView
+        android:id="@+id/tv_work"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/load"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/v_line_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_work"
+        app:layout_constraintTop_toBottomOf="@id/tv_fac"
+        app:layout_constraintVertical_bias="0" />
+
+    <View
+        android:id="@+id/v_line_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/app_btn_light_gray"
+        app:layout_constraintBottom_toTopOf="@id/tv_city"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <View
+        android:id="@+id/v_line_2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="16dp"
+        android:background="@color/app_btn_light_gray"
+        app:layout_constraintBottom_toTopOf="@id/tv_mobile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_work"
+        app:layout_constraintVertical_bias="0" />
+
+    <ImageView
+        android:id="@+id/iv_mobile"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_call_black_24dp"
+        app:layout_constraintEnd_toStartOf="@id/tv_mobile"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/v_line_2"
+        app:layout_constraintTop_toTopOf="@id/tv_mobile"
+        app:layout_constraintBottom_toBottomOf="@id/tv_mobile"/>
+
+    <TextView
+        android:id="@+id/tv_mobile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/load"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/v_line_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_mobile"
+        app:layout_constraintTop_toBottomOf="@id/v_line_2"
+        app:layout_constraintVertical_bias="0" />
+
+    <View
+        android:id="@+id/v_line_3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/app_btn_light_gray"
+        app:layout_constraintBottom_toTopOf="@id/tv_tel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_mobile"
+        app:layout_constraintVertical_bias="0" />
+
+    <ImageView
+        android:id="@+id/iv_tel"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_iconmonstr_vk_1"
+        app:layout_constraintEnd_toStartOf="@id/tv_tel"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/v_line_2"
+        app:layout_constraintTop_toTopOf="@id/tv_tel"
+        app:layout_constraintBottom_toBottomOf="@id/tv_tel"/>
+
+    <TextView
+        android:id="@+id/tv_tel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/load"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/v_line_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_tel"
+        app:layout_constraintTop_toBottomOf="@id/v_line_3"
+        app:layout_constraintVertical_bias="0" />
+
+    <View
+        android:id="@+id/v_line_4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/app_btn_light_gray"
+        app:layout_constraintBottom_toBottomOf="@id/tv_url"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_tel"
+        app:layout_constraintVertical_bias="0" />
+
+    <ImageView
+        android:id="@+id/iv_url"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_browser_black_24dp"
+        app:layout_constraintEnd_toStartOf="@id/tv_url"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/v_line_2"
+        app:layout_constraintTop_toTopOf="@id/tv_url"
+        app:layout_constraintBottom_toBottomOf="@id/tv_url"/>
+
+    <TextView
+        android:id="@+id/tv_url"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/load"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_url"
+        app:layout_constraintTop_toBottomOf="@id/v_line_4"
+        app:layout_constraintVertical_bias="0" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

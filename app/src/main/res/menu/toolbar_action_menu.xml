@@ -16,11 +16,4 @@
         android:title="non-check"
         app:showAsAction="ifRoom" />
 
-<!--    <item-->
-<!--        android:id="@+id/tb_action_close"-->
-<!--        android:icon="@drawable/ic_close_black_24dp"-->
-<!--        app:showAsAction="always"-->
-<!--        android:title="close"/>-->
-
-
 </menu>

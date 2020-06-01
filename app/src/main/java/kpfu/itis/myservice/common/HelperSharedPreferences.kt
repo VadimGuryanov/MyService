@@ -8,7 +8,7 @@ class HelperSharedPreferences(
 
     companion object {
         private const val TAG_ID = "tag_id"
-        private const val TAG_AUTH_SESSION = "tag_auth_session"
+        private const val TAG_SESSION = "tag_auth_session"
     }
 
     fun editId(data: String) =
@@ -25,16 +25,19 @@ class HelperSharedPreferences(
 
     fun editSession(data: String) =
         sharedPreferences.edit()
-            .putString(TAG_AUTH_SESSION, data)
+            .putString(TAG_SESSION, data)
             .apply()
 
-    fun readSession() : String? = sharedPreferences.getString(TAG_AUTH_SESSION, null)
+    fun readSession() : String? = sharedPreferences.getString(TAG_SESSION, null)
 
     fun deleteSession() =
         sharedPreferences.edit()
-            .putString(TAG_AUTH_SESSION, null)
+            .putString(TAG_SESSION, null)
             .apply()
 
-
+    fun clear() {
+        deleteID()
+        deleteSession()
+    }
 
 }

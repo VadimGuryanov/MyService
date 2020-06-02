@@ -78,8 +78,6 @@ class AboutMeFragment : Fragment() {
                 getViewModel().addDescription(et_about.text.toString()).observe(viewLifecycleOwner, Observer {
                     when {
                         it.isSuccess -> {
-                            toast(text.toString())
-                            toast(et_about.text.toString())
                             navigator.navigateBack()
                         }
                         it.isFailure -> toast(it.exceptionOrNull()?.message ?: "Произошла ошибка")

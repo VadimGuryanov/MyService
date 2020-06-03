@@ -1,8 +1,11 @@
 package kpfu.itis.myservice.features.feature_profile.presentation.edit
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.*
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -10,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_profile_edit.*
 import kotlinx.android.synthetic.main.item_profile_edit_info.*
@@ -70,33 +74,40 @@ class EditFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var id = helperSharedPreferences.readID()?.toLong()
+        listen(et_name, ti_name)
+        listen(et_lastname, ti_lastname)
+        listen(et_city, ti_city)
         id?.also {
-            observeProgressBar()
-            viewModel.getUserProfile(it).observe(viewLifecycleOwner, Observer { res ->
-                when {
-                    res.isSuccess -> {
-                        res.getOrNull()?.apply {
-                            Log.e("name-user", name)
-                            user = UserDto()
-                            user.name = name
-                            user.lastName = lastName
-                            user.photoUrl = photoURL
-                            user.city = city
-                            user.socialUrl = socialUrl
-                            user.university = university
-                            user.faculty = faculty
-                            user.mobilePhone = mobilePhone
-                            user.job = job
-                            user.description = description
-                            initEditText()
-                        } ?:
-                        toast("Произошла ошибка")
-                    }
-                    res.isFailure -> toast(res.exceptionOrNull()?.message ?: "Произошла ошибка")
-                    else -> toast("Произошла ошибка")
-                }
-            })
+            observes(id)
         }
+    }
+
+    private fun observes(id: Long) {
+        observeProgressBar()
+        viewModel.getUserProfile(id).observe(viewLifecycleOwner, Observer { res ->
+            when {
+                res.isSuccess -> {
+                    res.getOrNull()?.apply {
+                        Log.e("name-user", name)
+                        user = UserDto()
+                        user.name = name
+                        user.lastName = lastName
+                        user.photoUrl = photoURL
+                        user.city = city
+                        user.socialUrl = socialUrl
+                        user.university = university
+                        user.faculty = faculty
+                        user.mobilePhone = mobilePhone
+                        user.job = job
+                        user.description = description
+                        initEditText()
+                    } ?:
+                    toast("Произошла ошибка")
+                }
+                res.isFailure -> toast(res.exceptionOrNull()?.message ?: "Произошла ошибка")
+                else -> toast("Произошла ошибка")
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -108,18 +119,20 @@ class EditFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean =
         when (item.itemId) {
             R.id.tb_action_check -> {
-                var userDto = getUserDto()
-                viewModel.updateUserProfile(userDto).observe(viewLifecycleOwner, Observer {
-                    when {
-                        it.isSuccess -> {
-                            navigator.navigateBack()
+                if (!isEmptyFields()) {
+                    var userDto = getUserDto()
+                    viewModel.updateUserProfile(userDto).observe(viewLifecycleOwner, Observer {
+                        when {
+                            it.isSuccess -> {
+                                navigator.navigateBack()
+                            }
+                            it.isFailure -> toast(
+                                it.exceptionOrNull()?.message ?: "Произошла ошибка"
+                            )
+                            else -> toast("Произошла ошибка")
                         }
-                        it.isFailure -> toast(
-                            it.exceptionOrNull()?.message ?: "Произошла ошибка"
-                        )
-                        else -> toast("Произошла ошибка")
-                    }
-                })
+                    })
+                }
                 true
             }
             else -> {
@@ -180,6 +193,31 @@ class EditFragment : Fragment() {
             et_contact.setText(mobilePhone, TextView.BufferType.EDITABLE)
             et_social_url.setText(socialUrl, TextView.BufferType.EDITABLE)
         }
+    }
+
+    private fun isEmptyFields(): Boolean =
+        isEmpty(et_name, ti_name) ||
+        isEmpty(et_lastname, ti_lastname) ||
+        isEmpty(et_city, ti_city)
+
+    private fun isEmpty(et: EditText, ti: TextInputLayout) : Boolean =
+        et.text.toString().run {
+            if (isEmpty()) {
+                ti.error = getString(R.string.field_empty)
+                true
+            } else {
+                false
+            }
+        }
+
+    private fun listen(et: EditText, ti : TextInputLayout) {
+        et.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {}
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                ti.error = ""
+            }
+        })
     }
 
     private fun toast(mes: String) {

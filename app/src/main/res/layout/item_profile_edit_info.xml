@@ -39,7 +39,8 @@
             android:layout_height="wrap_content"
             android:focusable="true"
             android:hint="Имя"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textSize="16sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -183,7 +184,8 @@
             android:layout_height="wrap_content"
             android:focusable="true"
             android:hint="Университет"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textSize="16sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -205,7 +207,8 @@
             android:layout_height="wrap_content"
             android:focusable="true"
             android:hint="Факультет"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textSize="16sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -228,7 +231,8 @@
             android:layout_height="wrap_content"
             android:focusable="true"
             android:hint="Место работы"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textSize="16sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -268,7 +272,8 @@
             android:layout_height="wrap_content"
             android:focusable="true"
             android:hint="Мобильный телефон"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:textSize="16sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -290,7 +295,8 @@
             android:layout_height="wrap_content"
             android:focusable="true"
             android:hint="Ссылка"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textSize="16sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 

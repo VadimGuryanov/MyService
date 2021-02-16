@@ -1,12 +1,10 @@
 package kpfu.itis.myservice.features.feature_profile.domain
 
-import android.util.Log
 import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kpfu.itis.myservice.common.HelperSharedPreferences
-import kpfu.itis.myservice.common.exceptions.DatabaseException
 import kpfu.itis.myservice.common.exceptions.NetworkException
 import kpfu.itis.myservice.data.db.models.Favorite
 import kpfu.itis.myservice.data.db.models.Service
@@ -74,7 +72,6 @@ class ProfileInteractorImpl (
     override fun isAuth(): Boolean =
         helper.readSession()?.let {
             helper.readID().let {
-                Log.e("id", it)
                 it?.toLong() ?: -1 >= 0
             }
         } ?: false

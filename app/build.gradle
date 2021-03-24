@@ -2,16 +2,30 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.firebase.appdistribution'
+
+def props = new Properties()
+def secretFile = rootProject.file("secrets/keys.properties")
+if (secretFile.exists())
+    secretFile.withInputStream { props.load(it) }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     defaultConfig {
         applicationId "kpfu.itis.myservice"
         minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 30
+        versionCode appVersionCode.toInteger()
+        versionName appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            keyAlias props.getProperty('keyAlias')
+            keyPassword props.getProperty('keyPassword')
+            storeFile file("$rootDir/secrets/myservice-keystore")
+            storePassword props.getProperty('storePassword')
+        }
     }
     androidExtensions {
         experimental = true
@@ -20,6 +34,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            firebaseAppDistribution {
+                releaseNotesFile="$rootDir/release-data/release-notes.txt"
+                testersFile="$rootDir/release-data/testers.txt"
+            }
         }
     }
     compileOptions {
@@ -107,7 +126,7 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
 
     //firebase
-    implementation "com.google.firebase:firebase-core:17.4.2"
+    implementation "com.google.firebase:firebase-core:18.0.2"
     implementation 'com.google.firebase:firebase-firestore:21.4.3'
     implementation 'de.aaronoe:rxfirestorekt:0.1.1'
 

@@ -88,12 +88,16 @@ workflows:
       - deploy_staging:
           filters:
             tags:
-              only: /^v\d+[.]\d+[.]\d+(-staging){1}$/
+              only: /^v\d+[.]\d+[.]\d+(-staging){0, 1}$/
+          branches:
+            ignore: /^.*/
           requires:
             - build
       - deploy:
           filters:
             tags:
               only: /^v\d+[.]\d+[.]\d+$/
+          branches:
+            ignore: /^.*/
           requires:
             - build
